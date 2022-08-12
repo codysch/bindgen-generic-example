@@ -3,19 +3,19 @@
 // void a_create(A**);
 // void a_free(A*);
 // void a_print(A*)
-pub use a1::A;
+//
 
 #[no_mangle]
-pub extern "C" fn a_create() -> *mut A {
-    Box::into_raw(Box::new(A::new(10)))
+pub extern "C" fn a_create() -> *mut a1::A<usize> {
+    Box::into_raw(Box::new(a1::A::new(10)))
 }
 
 #[no_mangle]
-pub extern "C" fn a_print(v: &A) {
+pub extern "C" fn a_print(v: &a1::A<usize>) {
     println!("a = {:?}", v);
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn a_free(v: *mut A) {
+pub unsafe extern "C" fn a_free(v: *mut a1::A<usize>) {
     unsafe { Box::from_raw(v) };
 }

@@ -1,14 +1,14 @@
 #[derive(Debug)]
-pub struct A {
-    value: usize,
+pub struct A<T> {
+    value: T,
 }
 
-impl A {
-    pub fn new(value: usize) -> Self {
+impl<T: Copy> A<T> {
+    pub fn new(value: T) -> Self {
         A { value }
     }
 
-    pub fn value(&self) -> usize {
+    pub fn value(&self) -> T {
         self.value
     }
 }
