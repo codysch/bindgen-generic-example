@@ -1,0 +1,10 @@
+[package]
+name = "cbindgen-checkout"
+version = "0.1.0"
+edition = "2021"
+
+[build-dependencies]
+cbindgen = "*"
+
+[dependencies]
+a1 = { version = "*", path = "a1" }
